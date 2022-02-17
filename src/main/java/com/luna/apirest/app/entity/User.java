@@ -34,6 +34,10 @@ public class User implements Serializable {
     )
     private String email;
 
+    private String photoUrl;
+
+    private String cedulaUrl;
+
     private Boolean estado;
 
 }
