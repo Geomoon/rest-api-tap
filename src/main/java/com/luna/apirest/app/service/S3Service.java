@@ -1,10 +1,7 @@
 package com.luna.apirest.app.service;
 
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.S3Object;
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.services.s3.model.*;
 import com.amazonaws.util.IOUtils;
 import com.luna.apirest.app.entity.vm.Asset;
 import lombok.AllArgsConstructor;
@@ -30,7 +27,8 @@ public class S3Service {
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType(multipartFile.getContentType());
         try {
-            PutObjectRequest request = new PutObjectRequest(BUCKET, key, multipartFile.getInputStream(), metadata);
+            PutObjectRequest request = new PutObjectRequest(BUCKET, key, multipartFile.getInputStream(), metadata)
+                    .withCannedAcl(CannedAccessControlList.PublicRead);
             amazonS3Client.putObject(request);
             return key;
         } catch (IOException e) {

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/db_tap_rest?useSSL=false&serverTimezone=America/Guayaquil
+    url: jdbc:mysql://localhost:3306/db_tap_rest?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=America/Guayaquil
     username: root
     password: rootmysql
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,7 +13,7 @@ spring:
 cloud:
   aws:
     region:
-      static: us-east-1
+      static: sa-east-1
     stack:
       auto: false
     credentials:

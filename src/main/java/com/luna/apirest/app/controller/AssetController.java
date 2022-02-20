@@ -19,12 +19,13 @@ public class AssetController {
     private S3Service service;
 
     @PostMapping("/upload")
-    public Map<String, String> upload(@RequestParam MultipartFile file) {
-        String key = service.putObject(file);
+    public Map<String, String> upload(@RequestParam MultipartFile cedula, @RequestParam MultipartFile photo) {
+        String cedulaKey = service.putObject(cedula);
+        String photoKey = service.putObject(photo);
 
         var result = new HashMap<String, String>();
-        result.put("key", key);
-        result.put("url", service.getObjectUrl(key));
+        result.put("cedula_url", service.getObjectUrl(cedulaKey));
+        result.put("photo_url", service.getObjectUrl(photoKey));
         return result;
     }
 
