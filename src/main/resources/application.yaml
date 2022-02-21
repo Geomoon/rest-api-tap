@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/db_tap_rest?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=America/Guayaquil
-    username: root
-    password: rootmysql
+    username:
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
@@ -17,8 +17,8 @@ cloud:
     stack:
       auto: false
     credentials:
-      access-key: AKIAQBD6KVJFFBETHNZX
-      secret-key: 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
+      access-key: 
+      secret-key: 
 
 logging:
   level:
